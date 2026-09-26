@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Polygon 6 — GeckoTerminal Live Feed</title>
+<title>Polygon 6 ï¿½ GeckoTerminal Live Feed</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#0B0E14;--panel:#131826;--panel2:#0F1420;--line:#232B3D;--ink:#E7ECF5;--dim:#8B93A7;--amber:#D29A2E;--up:#35B37E;--down:#E5534B;--flat:#6B7385}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#020835;--panel:#270231;--panel2:#0d2428;--line:#e97df1;--ink:#E7ECF5;--dim:#8B93A7;--amber:#D29A2E;--up:#35B37E;--down:#E5534B;--flat:#6B7385}
 *{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}.wrap{max-width:1200px;margin:auto;padding:20px 14px 40px}
 header{margin-bottom:18px}.eyebrow{color:var(--amber);font:12px "JetBrains Mono",monospace}.h1{font-size:22px;font-weight:700;margin:4px 0}.sub,.clock,.mode{color:var(--dim);font-size:13px}.clock,.mode{font:12px "JetBrains Mono",monospace;margin-top:6px}.mode b{color:var(--amber)}
 .grid{display:grid;grid-template-columns:repeat(6,minmax(150px,1fr));gap:8px;overflow-x:auto;padding-bottom:4px}.head-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.sym{font-weight:700;font-size:15px}.name{color:var(--dim);font-size:11px;margin-top:1px}.price{font:500 18px "JetBrains Mono",monospace;margin-top:10px}.move{display:flex;align-items:center;gap:5px;margin-top:4px;font:500 12.5px "JetBrains Mono",monospace}.arrow{display:inline-flex;width:9px;height:9px;align-items:center;justify-content:center}.up{color:var(--up)}.down{color:var(--down)}.flat{color:var(--flat)}
@@ -12,17 +12,17 @@ header{margin-bottom:18px}.eyebrow{color:var(--amber);font:12px "JetBrains Mono"
 .no-move{padding:14px 12px;color:var(--dim);font:12px/1.6 "JetBrains Mono",monospace;display:flex;flex-direction:column;gap:6px}.tag{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--flat)}.err .tag{color:var(--down)}footer{margin-top:22px;color:var(--dim);font-size:12px;line-height:1.6;border-top:1px solid var(--line);padding-top:14px}footer b{color:var(--ink)}
 @media(max-width:760px){.grid{grid-auto-flow:column;grid-template-columns:none}.grid>*{min-width:155px}}
 </style></head><body><div class="wrap">
-<header><div class="eyebrow">POLYGON · CHAIN 137</div><div class="h1">6-token live feed</div>
-<div class="sub">Live prices and trades via GeckoTerminal Public API</div><div class="clock" id="clock">—</div><div class="mode" id="mode">connection: detecting…</div></header>
+<header><div class="eyebrow">POLYGON ï¿½ CHAIN 137</div><div class="h1">6-token live feed</div>
+<div class="sub">Live prices and trades via GeckoTerminal Public API</div><div class="clock" id="clock">ï¿½</div><div class="mode" id="mode">connection: detectingï¿½</div></header>
 <div class="grid" id="headRow"></div><div class="grid" id="feedRow"></div>
 <footer><b>Data source:</b> GeckoTerminal Public API. Prices are refreshed every 30 seconds; trades every 60 seconds to stay below the public API's approximately 10 calls/minute limit. Pool and token data are queried directly from GeckoTerminal.</footer></div><script>
 const API_BASE='https://api.geckoterminal.com/api/v2', NETWORK='polygon_pos';
 const TOKENS=[
-{sym:"BMC1x",name:"BMC1SilverX",tokenAddress:"0xd8a28224358b4291cd09710969ececcafbdb2751",poolAddress:"0x0e18c6fa2fd6eb48b9e9be0d6df93a861b40895c"},
+{sym:"BMC1x",name:"BMC1SilverX",tokenAddress:"0xd8a28224358b4291cd09710969ececcafbdb2751",poolAddress:"0x2026840a6f36caec694a242ae135f2c34033172c"},
 {sym:"BMC1g",name:"BMC1Golden",tokenAddress:"0x478c45c6a19e68dc75d73176ee6b67c3f5b539fb",poolAddress:"0x900b68e771cfb6379306c0c18dba0d771b43c3cc"},
 {sym:"BMC1xg",name:"BMC1xGame",tokenAddress:"0x0bdcb45d4d28f86b3904e34e7dc7065bc3a927b3",poolAddress:"0x960c6dc8b3497a28a9d5dd8f3d08d9dc39d4d54d"},
 {sym:"BMC1",name:"BMC1",tokenAddress:"0x002f04b8d04a637b5c4724c719712da39a87a760",poolAddress:"0x7e213caac0c83c350f25781db159060bb7d04488"},
-{sym:"AvoX",name:"AvoX Coin",tokenAddress:"0x0b3b5b13fa312c0db1d6387241d7fc2c358ecec2",poolAddress:null},
+{sym:"AvoX",name:"AvoX Coin",tokenAddress:"0x0b3b5b13fa312c0db1d6387241d7fc2c358ecec2",poolAddress:"0x7fdce40eb1025d3767626d1c4f3ad3607e65eb6e"},
 {sym:"CitrusX",name:"CitrusX",tokenAddress:"0x30df99e86d26e85cacb596275ed782f2cb861885",poolAddress:"0xba5fe3a8d0af369dc87385522573dee11dd7aadd"}];
 const state=TOKENS.map(t=>({...t,price:null,pct:0,dir:"flat",lastPrice:null,lastTradeId:undefined}));
 const up='<svg width="8" height="8" viewBox="0 0 8 8"><path d="M4 .8 7.6 6.6H.4Z" fill="currentColor"/></svg>';
@@ -32,16 +32,16 @@ const arrows={up,down,flat}; let inFlight=false, tradeCycle=false;
 
 const headRow=document.getElementById('headRow'),feedRow=document.getElementById('feedRow');
 state.forEach((s,i)=>{
- headRow.insertAdjacentHTML('beforeend',`<div class="head-card"><div class="sym">${s.sym}</div><div class="name">${s.name}</div><div class="price" id="price-${i}">—</div><div class="move flat" id="move-${i}"><span class="arrow" id="arrow-${i}">${flat}</span><span id="pct-${i}">—</span></div></div>`);
- feedRow.insertAdjacentHTML('beforeend',`<div class="feed-col" id="feed-${i}"><div class="no-move" id="status-${i}"><span class="tag">loading</span><span>Fetching GeckoTerminal data…</span></div></div>`);
+ headRow.insertAdjacentHTML('beforeend',`<div class="head-card"><div class="sym">${s.sym}</div><div class="name">${s.name}</div><div class="price" id="price-${i}">ï¿½</div><div class="move flat" id="move-${i}"><span class="arrow" id="arrow-${i}">${flat}</span><span id="pct-${i}">ï¿½</span></div></div>`);
+ feedRow.insertAdjacentHTML('beforeend',`<div class="feed-col" id="feed-${i}"><div class="no-move" id="status-${i}"><span class="tag">loading</span><span>Fetching GeckoTerminal dataï¿½</span></div></div>`);
 });
-function fmtPrice(p){if(!Number.isFinite(p))return'—';return p<.01?p.toFixed(10):p<1?p.toFixed(7):p.toFixed(2)}
+function fmtPrice(p){if(!Number.isFinite(p))return'ï¿½';return p<.01?p.toFixed(10):p<1?p.toFixed(7):p.toFixed(2)}
 function fmtUsd(v){if(!Number.isFinite(v))return'';if(v>=1000)return'$'+(v/1000).toFixed(2)+'k';if(v>=1)return'$'+v.toFixed(2);return'$'+v.toFixed(4)}
 function timeStr(){return new Date().toLocaleTimeString()}
 function setMode(x){document.getElementById('mode').innerHTML='connection: <b>'+x+'</b>'}
 async function get(path){
  const r=await fetch(API_BASE+path,{headers:{accept:'application/json;version=20230203'}});
- if(!r.ok){let body='';try{body=await r.text()}catch{};throw new Error(`HTTP ${r.status}${body?' — '+body.slice(0,100):''}`)}
+ if(!r.ok){let body='';try{body=await r.text()}catch{};throw new Error(`HTTP ${r.status}${body?' ï¿½ '+body.slice(0,100):''}`)}
  return r.json()
 }
 function setError(i,msg){const c=document.getElementById(`feed-${i}`);if(c.querySelector('.tick'))return;c.innerHTML=`<div class="no-move err"><span class="tag">fetch error</span><span>${msg}</span></div>`}
@@ -61,7 +61,7 @@ function addPrice(i,label='price'){
 function addTrade(i,t){
  const a=t.attributes||{},kind=a.kind==='sell'?'sell':'buy',dir=kind==='buy'?'up':'down';
  const p=parseFloat(a.price_to_in_usd??a.price_from_in_usd??a.price_to_in_usd??'0'),u=parseFloat(a.volume_in_usd??'0');
- const d=document.createElement('div');d.className='tick '+dir;d.innerHTML=`<span class="t">${a.block_timestamp?new Date(a.block_timestamp).toLocaleTimeString():'--:--:--'}</span><span class="p"><span class="arrow">${arrows[dir]}</span>$${fmtPrice(p)} <span class="badge">${kind}${u?' · '+fmtUsd(u):''}</span></span>`;return d;
+ const d=document.createElement('div');d.className='tick '+dir;d.innerHTML=`<span class="t">${a.block_timestamp?new Date(a.block_timestamp).toLocaleTimeString():'--:--:--'}</span><span class="p"><span class="arrow">${arrows[dir]}</span>$${fmtPrice(p)} <span class="badge">${kind}${u?' ï¿½ '+fmtUsd(u):''}</span></span>`;return d;
 }
 async function refreshPrices(){
  const addresses=TOKENS.map(t=>t.tokenAddress).join(',');
@@ -99,8 +99,8 @@ async function refreshTrades(poolMap){
  }))
 }
 async function refreshAll(doTrades=false){
- if(inFlight)return;inFlight=true;document.getElementById('clock').textContent='Updating…';
- try{const pools=await refreshPrices();if(doTrades)await refreshTrades(pools);document.getElementById('clock').textContent=`Last update ${timeStr()} — prices live${doTrades?' · trades checked':''}`}
+ if(inFlight)return;inFlight=true;document.getElementById('clock').textContent='Updatingï¿½';
+ try{const pools=await refreshPrices();if(doTrades)await refreshTrades(pools);document.getElementById('clock').textContent=`Last update ${timeStr()} ï¿½ prices live${doTrades?' ï¿½ trades checked':''}`}
  catch(e){console.error(e);setMode('GeckoTerminal error');document.getElementById('clock').textContent='Update error: '+e.message;state.forEach((s,i)=>{if(s.lastPrice===null)setError(i,e.message)})}
  finally{inFlight=false}
 }
